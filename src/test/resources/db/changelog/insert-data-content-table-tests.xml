@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="populate-content-table" author="luiza">
+        <!--root folder-->
+        <insert tableName="content">
+            <column name="name" value="My Stuff"/>
+            <column name="title" value="My Stuff"/>
+            <column name="description" value="Sutff that I like"/>
+            <column name="type" value="folder"/>
+        </insert>
+
+        <insert tableName="content">
+            <column name="name" value="Java Cookbook"/>
+            <column name="title" value="Java Cookbook"/>
+            <column name="description" value="Java Cookbook for cooking good Java code"/>
+            <column name="type" value="asset"/>
+            <column name="mime_type" value="application/pdf"/>
+            <column name="url" value="http://ommolketab.ir/aaf-lib/enkzrbnv8s4aw7givlti3gyorhubaa.pdf"/>
+            <column name="parent_id" value="1"/>
+        </insert>
+
+        <insert tableName="content">
+            <column name="name" value="Cats"/>
+            <column name="title" value="Cats"/>
+            <column name="description" value="Cats folder"/>
+            <column name="type" value="folder"/>
+            <column name="parent_id" value="1"/>
+        </insert>
+
+        <insert tableName="content">
+            <column name="name" value="Coffee"/>
+            <column name="title" value="Coffee the Cat"/>
+            <column name="description" value="The Cat With 1.4 Million Followers"/>
+            <column name="type" value="asset"/>
+            <column name="mime_type" value="image/jpeg"/>
+            <column name="url" value="https://moderncat-wpengine.netdna-ssl.com/sites/default/files/images/uploads/SocialMedia-1.jpg"/>
+            <column name="parent_id" value="3"/>
+        </insert>
+
+        <insert tableName="content">
+            <column name="name" value="Games"/>
+            <column name="title" value="Games"/>
+            <column name="description" value="Games folder"/>
+            <column name="type" value="folder"/>
+            <column name="parent_id" value="1"/>
+        </insert>
+
+        <insert tableName="content">
+            <column name="name" value="Link"/>
+            <column name="title" value="Link"/>
+            <column name="description" value="PNG image with Link from Zelda: Breath Of the Wild"/>
+            <column name="type" value="asset"/>
+            <column name="mime_type" value="image/png"/>
+            <column name="url" value="https://www.pinclipart.com/picdir/big/179-1796468_legend-of-zelda-breath-of-the-wild-logo.png"/>
+            <column name="parent_id" value="5"/>
+        </insert>
+
+        <!--root folder 2-->
+        <insert tableName="content">
+            <column name="name" value="My Stuff 2"/>
+            <column name="title" value="My Stuff 2"/>
+            <column name="description" value="Sutff that I don't like"/>
+            <column name="type" value="folder"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
