@@ -5,6 +5,7 @@ import com.luiza.cms.entity.ContentEntity;
 import com.luiza.cms.repository.ContentRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class ContentService {
         this.modelMapper = modelMapper;
     }
 
+    @Cacheable("documents")
     public List<ContentDto> getByParentId(Long id) {
         List<ContentEntity> contentEntities = contentRepository.findByParentId(id);
         return modelMapper.map(contentEntities, new TypeToken<List<ContentDto>>() {}.getType());

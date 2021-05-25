@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "cache.ttl.seconds",
+      "type": "java.lang.Integer",
+      "description": "Cache time to live."
+    },
+    {
+      "name": "cache.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable cache."
+    }
+  ]
+}
