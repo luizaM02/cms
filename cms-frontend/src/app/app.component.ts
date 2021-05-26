@@ -8,7 +8,6 @@ import {Document} from "./model/Document";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'Browse Your Files';
   documents: Document[] = [];
 
   constructor(private contentService : ContentService) {}
