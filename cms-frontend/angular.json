@@ -74,6 +74,10 @@
               "browserTarget": "cms-frontend:build:development"
             }
           },
+          "options": {
+            "browserTarget": "cms-frontend:build",
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
