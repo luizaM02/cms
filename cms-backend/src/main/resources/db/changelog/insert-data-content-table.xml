@@ -68,5 +68,15 @@
             <column name="type" value="folder"/>
         </insert>
 
+        <insert tableName="content">
+            <column name="name" value="Video"/>
+            <column name="title" value="Video"/>
+            <column name="description" value="NgRx Tutorial"/>
+            <column name="type" value="asset"/>
+            <column name="mime_type" value="video/mp4"/>
+            <column name="url" value="https://filetransfer.io/data-package/mgXznfDn/download"/>
+            <column name="parent_id" value="7"/>
+        </insert>
+
     </changeSet>
 </databaseChangeLog>

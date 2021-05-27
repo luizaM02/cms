@@ -9,11 +9,12 @@ import {ContentComponent} from './content/content.component';
 import {TreeViewComponent} from './tree-view/tree-view.component';
 import {CardViewComponent} from './card-view/card-view.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {StoreModule} from '@ngrx/store';
 import {AppMaterialModule} from "../material/app-material.module";
-import {MatGridListModule} from "@angular/material/grid-list";
-import { PreviewPaneComponent } from './preview-pane/preview-pane.component';
-import {MatToolbarModule} from "@angular/material/toolbar";
+import {PreviewPaneComponent} from './preview-pane/preview-pane.component';
+import {NgxsModule} from "@ngxs/store";
+import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
+import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
+import {DocumentState} from "./store/reducers/document.state";
 
 @NgModule({
   declarations: [
@@ -30,9 +31,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     HttpClientModule,
     FlexLayoutModule,
     AppMaterialModule,
-    StoreModule.forRoot({}, {}),
-    MatGridListModule,
-    MatToolbarModule,
+    NgxsModule.forRoot([DocumentState]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

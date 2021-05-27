@@ -5,6 +5,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   exports: [
@@ -14,6 +15,9 @@ import {MatTreeModule} from '@angular/material/tree';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+    MatGridListModule,
+    MatToolbarModule,
+    MatGridListModule,
     // A11yModule,
     // ClipboardModule,
     // CdkStepperModule,

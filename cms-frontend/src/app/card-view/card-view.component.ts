@@ -1,7 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Document} from "../model/Document";
+import {Component, OnInit} from '@angular/core';
+import {Document} from "../model/document.model";
 import {ContentService} from "../service/content.service";
 import {Subscription} from "rxjs";
+import {Store} from "@ngxs/store";
+import {SetSelectedDocument} from "../store/actions/document.actions";
 
 @Component({
   selector: 'app-card-view',
@@ -12,7 +14,7 @@ export class CardViewComponent implements OnInit {
   documents: Document[] = [];
   subscription: Subscription | null = null;
 
-  constructor(private contentService: ContentService) {
+  constructor(private contentService: ContentService, private store: Store) {
   }
 
   ngOnInit(): void {
@@ -25,5 +27,13 @@ export class CardViewComponent implements OnInit {
     this.contentService.getChildDocuments(parentId).subscribe(documents => {
       this.documents = documents;
     })
+  }
+
+  selectDocument(document: Document) {
+    if(document.type === "folder") {
+      this.navigateDown(document.id);
+    } else {
+      this.store.dispatch(new SetSelectedDocument(document));
+    }
   }
 }

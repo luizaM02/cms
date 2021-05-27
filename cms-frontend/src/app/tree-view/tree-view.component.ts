@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Document} from "../model/Document";
+import {Document} from "../model/document.model";
 import {ContentService} from "../service/content.service";
 import {NestedTreeControl} from "@angular/cdk/tree";
 import {MatTreeNestedDataSource} from "@angular/material/tree";
 import {Observable} from "rxjs";
+import {Store} from "@ngxs/store";
+import {SetSelectedDocument} from "../store/actions/document.actions";
 
 @Component({
   selector: 'app-tree-view',
@@ -15,7 +17,7 @@ export class TreeViewComponent implements OnInit {
   treeControl = new NestedTreeControl<Document>(node => this.getChildDocuments(node.id));
   dataSource = new MatTreeNestedDataSource<Document>();
 
-  constructor(private contentService: ContentService) {
+  constructor(private contentService: ContentService, private store: Store) {
   }
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class TreeViewComponent implements OnInit {
   }
 
   assetClicked(document: Document) {
-    console.debug(document.name);
+    this.store.dispatch(new SetSelectedDocument(document));
   }
 
 }

@@ -1,6 +1,6 @@
-<div fxLayout="row">
+<div fxLayout="row wrap">
   <div *ngFor="let document of documents">
-    <mat-card class="card" (click)="navigateDown(document.id)">
+    <mat-card class="card" (click)="selectDocument(document)">
       <mat-card-header>
         <mat-card-title>{{document.name}}</mat-card-title>
       </mat-card-header>

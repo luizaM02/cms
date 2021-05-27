@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {DocumentState} from "../store/reducers/document.state";
+import {Observable} from "rxjs";
+import {Select} from "@ngxs/store";
+import {Document} from "../model/document.model";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-preview-pane',
@@ -7,9 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreviewPaneComponent implements OnInit {
 
-  constructor() { }
+  @Select(DocumentState.getSelectedDocument) selectedDocument$: Observable<Document>;
+
+  constructor(private sanitizer: DomSanitizer) {
+  }
 
   ngOnInit(): void {
+  }
+
+  bypassSecurityTrustResourceUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
 }
