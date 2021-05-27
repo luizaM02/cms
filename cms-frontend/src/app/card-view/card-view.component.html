@@ -1,0 +1,18 @@
+<div fxLayout="row">
+  <div fxFlex="20%" *ngFor="let document of documents">
+    <mat-card class="card" (click)="navigateDown(document.id)">
+      <mat-card-header>
+        <mat-card-title>{{document.name}}</mat-card-title>
+      </mat-card-header>
+      <i mat-card-image *ngIf="document.type === 'asset'" class="material-icons">insert_drive_file</i>
+      <i mat-card-image *ngIf="document.type === 'folder'" class="material-icons">folder_open</i>
+
+      <mat-card-content>
+        <p class="card-description">
+          {{document.description}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

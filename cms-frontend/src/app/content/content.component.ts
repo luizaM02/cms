@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Document} from "../model/Document";
-import {ContentService} from "../service/content.service";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-content',
@@ -8,14 +6,18 @@ import {ContentService} from "../service/content.service";
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  documents: Document[] = [];
 
-  constructor(private contentService : ContentService) {}
+  viewType: string = "card";
+
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.contentService.getRootDocuments().subscribe(documents => {
-      this.documents = documents;
-    })
+
+  }
+
+  viewTypeChanged(viewType: string) {
+    this.viewType = viewType;
   }
 
 }

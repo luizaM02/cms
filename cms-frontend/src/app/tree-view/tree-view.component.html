@@ -1,0 +1,7 @@
+<ol>
+  <li *ngFor='let value of documents;'>
+    <mat-icon *ngIf="value.type === 'asset'">insert_drive_file</mat-icon>
+    <mat-icon *ngIf="value.type === 'folder'">folder_open</mat-icon>
+    {{ value.name }}
+  </li>
+</ol>
