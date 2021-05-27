@@ -1,17 +1,4 @@
 .app-title {
-  margin-left: 16px;
+  text-align: center;
   font-size: x-large;
-}
-
-.toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  background-color: #23d29a;
-  color: white;
-  font-weight: 600;
 }

@@ -11,6 +11,9 @@ import {CardViewComponent} from './card-view/card-view.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {StoreModule} from '@ngrx/store';
 import {AppMaterialModule} from "../material/app-material.module";
+import {MatGridListModule} from "@angular/material/grid-list";
+import { PreviewPaneComponent } from './preview-pane/preview-pane.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import {AppMaterialModule} from "../material/app-material.module";
     ViewSwitcherComponent,
     ContentComponent,
     TreeViewComponent,
-    CardViewComponent
+    CardViewComponent,
+    PreviewPaneComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,8 @@ import {AppMaterialModule} from "../material/app-material.module";
     FlexLayoutModule,
     AppMaterialModule,
     StoreModule.forRoot({}, {}),
+    MatGridListModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

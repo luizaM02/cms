@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Document} from "../model/Document";
 import {ContentService} from "../service/content.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-card-view',
@@ -9,12 +10,13 @@ import {ContentService} from "../service/content.service";
 })
 export class CardViewComponent implements OnInit {
   documents: Document[] = [];
+  subscription: Subscription | null = null;
 
   constructor(private contentService: ContentService) {
   }
 
   ngOnInit(): void {
-    this.contentService.getRootDocuments().subscribe(documents => {
+    this.subscription = this.contentService.getRootDocuments().subscribe(documents => {
       this.documents = documents;
     })
   }

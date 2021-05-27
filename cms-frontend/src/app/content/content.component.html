@@ -1,11 +1,9 @@
-<div class="content" role="main">
-<div class="align-right">
-  <app-view-switcher (viewTypeChanged)="viewTypeChanged($event)"></app-view-switcher>
-</div>
-
-  {{viewType}}
-
-  <h2>Files</h2>
+<div>
+  <mat-toolbar color="primary">
+    <span>Files</span>
+    <span class="spacer"></span>
+    <app-view-switcher class="align-right" (viewTypeChanged)="viewTypeChanged($event)"></app-view-switcher>
+  </mat-toolbar>
 
   <app-tree-view *ngIf="viewType === 'tree'"></app-tree-view>
   <app-card-view *ngIf="viewType === 'card'"></app-card-view>

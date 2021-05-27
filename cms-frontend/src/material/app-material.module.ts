@@ -3,16 +3,17 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree';
 
 @NgModule({
   exports: [
     MatButtonToggleModule,
-    MatIconModule,
     MatCardModule,
     MatTreeModule,
     MatIconModule,
     MatButtonModule,
+    MatToolbarModule,
     // A11yModule,
     // ClipboardModule,
     // CdkStepperModule,
@@ -59,4 +60,5 @@ import {MatTreeModule} from '@angular/material/tree';
     // ScrollingModule,
   ]
 })
-export class AppMaterialModule {}
+export class AppMaterialModule {
+}

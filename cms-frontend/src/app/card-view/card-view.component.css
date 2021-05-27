@@ -1,10 +1,10 @@
 .card {
-  width: 200px;
-  height: 180px;
   border-style: groove;
   margin: 5px;
   cursor: pointer;
   overflow: hidden;
+  width: 160px;
+  height: 180px;
 }
 
 .card:hover {
