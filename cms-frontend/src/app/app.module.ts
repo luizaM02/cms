@@ -5,13 +5,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {ViewSwitcherComponent} from './view-switcher/view-switcher.component';
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {MatIconModule} from "@angular/material/icon";
 import {ContentComponent} from './content/content.component';
-import { TreeViewComponent } from './tree-view/tree-view.component';
-import { CardViewComponent } from './card-view/card-view.component';
-import {MatCardModule} from "@angular/material/card";
+import {TreeViewComponent} from './tree-view/tree-view.component';
+import {CardViewComponent} from './card-view/card-view.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {StoreModule} from '@ngrx/store';
+import {AppMaterialModule} from "../material/app-material.module";
 
 @NgModule({
   declarations: [
@@ -25,10 +24,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
   imports: [
     BrowserModule,
     HttpClientModule,
-    MatButtonToggleModule,
-    MatIconModule,
-    MatCardModule,
     FlexLayoutModule,
+    AppMaterialModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,15 +1,17 @@
 .card {
-  max-width: 200px;
+  width: 200px;
+  height: 180px;
   border-style: groove;
   margin: 5px;
   cursor: pointer;
+  overflow: hidden;
+}
+
+.card:hover {
+  background-color: #eee;
 }
 
 i {
   font-size: 80px;
   text-align: center;
-}
-
-.card-description {
-  overflow: hidden;
 }
