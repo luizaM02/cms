@@ -10,7 +10,7 @@
         <insert tableName="content">
             <column name="name" value="My Stuff"/>
             <column name="title" value="My Stuff"/>
-            <column name="description" value="Sutff that I like"/>
+            <column name="description" value="Stuff that I like"/>
             <column name="type" value="folder"/>
         </insert>
 
@@ -64,7 +64,7 @@
         <insert tableName="content">
             <column name="name" value="My Stuff 2"/>
             <column name="title" value="My Stuff 2"/>
-            <column name="description" value="Sutff that I don't like"/>
+            <column name="description" value="Stuff that I don't like"/>
             <column name="type" value="folder"/>
         </insert>
 
