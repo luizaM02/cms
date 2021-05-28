@@ -4,8 +4,9 @@ import {ContentService} from "../service/content.service";
 import {NestedTreeControl} from "@angular/cdk/tree";
 import {MatTreeNestedDataSource} from "@angular/material/tree";
 import {Observable} from "rxjs";
-import {Store} from "@ngxs/store";
-import {SetSelectedDocument} from "../store/actions/document.actions";
+import {Select, Store} from "@ngxs/store";
+import {GetRootDocuments, SetSelectedDocument} from "../store/actions/document.actions";
+import {DocumentState} from "../store/state/document.state";
 
 @Component({
   selector: 'app-tree-view',
@@ -13,6 +14,7 @@ import {SetSelectedDocument} from "../store/actions/document.actions";
   styleUrls: ['./tree-view.component.css']
 })
 export class TreeViewComponent implements OnInit {
+  @Select(DocumentState.getRootDocuments) documents$: Observable<Document[]>;
 
   treeControl = new NestedTreeControl<Document>(node => this.getChildDocuments(node.id));
   dataSource = new MatTreeNestedDataSource<Document>();
@@ -21,7 +23,9 @@ export class TreeViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.contentService.getRootDocuments().subscribe(rootNodes => {
+    this.store.dispatch(new GetRootDocuments());
+
+    this.documents$.subscribe(rootNodes => {
       this.dataSource.data = rootNodes;
     });
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DocumentState} from "../store/reducers/document.state";
+import {DocumentState} from "../store/state/document.state";
 import {Observable} from "rxjs";
 import {Select} from "@ngxs/store";
 import {Document} from "../model/document.model";

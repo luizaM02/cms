@@ -5,3 +5,16 @@ export class SetSelectedDocument {
 
   constructor(public payload: Document) {}
 }
+
+export class GetChildDocuments {
+  static readonly type = '[Todo] Get';
+
+  constructor(public id: number) {
+
+  }
+}
+
+export class GetRootDocuments {
+  static readonly type = '[Todo] Get Roots';
+
+}

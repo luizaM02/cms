@@ -14,7 +14,7 @@ import {PreviewPaneComponent} from './preview-pane/preview-pane.component';
 import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
-import {DocumentState} from "./store/reducers/document.state";
+import {DocumentState} from "./store/state/document.state";
 
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
 <div fxLayout="row wrap">
-  <div *ngFor="let document of documents">
+  <div *ngFor="let document of currentDocuments">
     <mat-card class="card" (click)="selectDocument(document)">
       <mat-card-header>
         <mat-card-title>{{document.name}}</mat-card-title>
