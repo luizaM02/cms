@@ -8,7 +8,9 @@ The project is separated into 2 folders:
 - cms-frontend
 
 **CMS-BACKEND**
+
 This is the project for the server that is built in Java.
+
 It is running by default on `http://localhost:8080`
 
 Spring Data with Hibernate and Liquibase are used to build the content table where information about the files are stored. An in-memory database (h2) is configured.
@@ -25,7 +27,9 @@ Database integartion tests are used to validate that the table is built corectly
 A separate configuration file is used, along with a different data insertion file, so that the tests won't be affected by adding/altering more content into the application database. 
 
 **CMS-FRONTEND**
+
 This project is built through Angular CLI.
+
 It is running by default on `http://localhost:4200`
 A proxy is used to avoid same origin policy, configured in `src/proxy.conf.json`.
 
