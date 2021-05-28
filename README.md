@@ -19,8 +19,8 @@ To insert more data into the table, you will need to modify the `insert-data-con
 The service layer methods have a cache of type Guava implemented with a TTL of 1 minute. You can change this value in the `application.properties` file or you can enable/disable the cache completly.
 
 The REST API of the server has the following 2 endpoints:
--`/api/documents`: returns all the documents from the database that have the parent_id field *null*. This endpoint is used to fetch the root documents;
--`/api/documents/{id}`: returns all the child documents of the document with the provided id.
+- `/api/documents`: returns all the documents from the database that have the parent_id field *null*. This endpoint is used to fetch the root documents;
+- `/api/documents/{id}`: returns all the child documents of the document with the provided id.
 
 ***Tests***
 Database integartion tests are used to validate that the table is built corectly and the data is in place.
