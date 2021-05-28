@@ -1,20 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Document} from "../model/document.model";
 import {ContentService} from "../service/content.service";
 import {NestedTreeControl} from "@angular/cdk/tree";
 import {MatTreeNestedDataSource} from "@angular/material/tree";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {Select, Store} from "@ngxs/store";
 import {GetRootDocuments, SetSelectedDocument} from "../store/actions/document.actions";
 import {DocumentState} from "../store/state/document.state";
+import {takeUntil} from "rxjs/operators";
 
 @Component({
   selector: 'app-tree-view',
   templateUrl: './tree-view.component.html',
   styleUrls: ['./tree-view.component.css']
 })
-export class TreeViewComponent implements OnInit {
-  @Select(DocumentState.getRootDocuments) documents$: Observable<Document[]>;
+export class TreeViewComponent implements OnInit, OnDestroy {
+  @Select(DocumentState.getRootDocuments) documents$!: Observable<Document[]>;
 
   treeControl = new NestedTreeControl<Document>(node => this.getChildDocuments(node.id));
   dataSource = new MatTreeNestedDataSource<Document>();
@@ -22,10 +23,13 @@ export class TreeViewComponent implements OnInit {
   constructor(private contentService: ContentService, private store: Store) {
   }
 
+  public unsubscribe$ = new Subject();
+
+
   ngOnInit(): void {
     this.store.dispatch(new GetRootDocuments());
 
-    this.documents$.subscribe(rootNodes => {
+    this.documents$.pipe(takeUntil(this.unsubscribe$)).subscribe(rootNodes => {
       this.dataSource.data = rootNodes;
     });
   }
@@ -40,4 +44,8 @@ export class TreeViewComponent implements OnInit {
     this.store.dispatch(new SetSelectedDocument(document));
   }
 
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }

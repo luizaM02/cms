@@ -7,8 +7,8 @@ import {tap} from "rxjs/internal/operators/tap";
 
 export interface DocumentStateModel {
   selectedDocument: Document | null;
-  rootDocuments: Document[];
-  childDocuments: Document[];
+  rootDocuments: Document[] | undefined;
+  childDocuments: Document[] | undefined;
 }
 
 @Injectable()
@@ -16,8 +16,8 @@ export interface DocumentStateModel {
   name: 'documents',
   defaults: {
     selectedDocument: null,
-    rootDocuments: [],
-    childDocuments: []
+    rootDocuments: undefined,
+    childDocuments: undefined
   }
 })
 export class DocumentState {
@@ -41,10 +41,8 @@ export class DocumentState {
   }
 
   @Action(SetSelectedDocument)
-  setSelectedDocument({getState, setState}: StateContext<DocumentStateModel>, {payload}: SetSelectedDocument) {
-    const state = getState();
-    setState({
-      ...state,
+  setSelectedDocument({patchState}: StateContext<DocumentStateModel>, {payload}: SetSelectedDocument) {
+    patchState({
       selectedDocument: payload
     });
   }
