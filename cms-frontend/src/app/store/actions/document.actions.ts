@@ -7,7 +7,7 @@ export class SetSelectedDocument {
 }
 
 export class GetChildDocuments {
-  static readonly type = '[Todo] Get';
+  static readonly type = '[Document] Get';
 
   constructor(public id: number) {
 
@@ -15,6 +15,6 @@ export class GetChildDocuments {
 }
 
 export class GetRootDocuments {
-  static readonly type = '[Todo] Get Roots';
+  static readonly type = '[Document] Get Roots';
 
 }
